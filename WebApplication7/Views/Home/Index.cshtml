@@ -4,6 +4,49 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
+<br />
 <div class="row">
+
+    <div class="col-sm-12">
+
+        <div id="result"></div>
+
+    </div>
     
 </div>
+
+<script>
+
+    $(document).ready(function () {
+
+        checkDevice();
+
+    });
+
+    function checkDevice() {
+
+        var element = document.getElementById("result");
+        var result = "Unknown";
+
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+            if (/(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/i.test(navigator.userAgent)) {
+
+                result = "TABLET";
+
+            } else {
+
+                result = "MOBILE";
+
+            }
+
+        } else {
+            
+            result = "DESKTOP";
+        }
+
+        element.innerHTML = "Your device is " + result;
+
+    }
+
+</script>
